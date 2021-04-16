@@ -1,0 +1,38 @@
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // Program gives % commission base on sale.
+        double commission = 0;  // Commission percentage
+        double amount ;         // Sales amount
+
+        Scanner keyboard = new Scanner(System.in);  // Scanner object collects input
+        System.out.println("How much did you sale?"); //  Asks for sales amount
+        amount = keyboard.nextDouble();                // Transforms input to double data type
+        // " if " for 10% commission rate
+        if (amount <= 10000) {                          // Checks if sales(amount) >$10,000
+            double amount1 = 0.10;                      //Sets 10% commission rate
+            commission = amount * amount1;              // Calculates commission
+            System.out.println(" You earned: $" + commission); // Prints commissions earned
+         }
+        // " if " for 15% commission rate
+         else if (amount >= 10000 && amount <= 15000) {  // Checks if sales(amount)<= $15,000
+             double amount2 = 0.15;                      //Sets 15% commission rate
+             commission = amount * amount2;              // Calculates commission
+            System.out.println(" You earned: $" + commission);// Prints commissions earned
+         }
+        // " if " for 20% commission rate
+         else if (amount > 15000) {                      // Checks if sales(amount)<= $20,000
+             double amount3 = 0.20;                      //Sets 10% commission rate
+             commission = amount * amount3;              // Calculates commission
+            System.out.println(" You earned: $" + commission);// Prints commissions earned
+         }
+
+         else
+                System.out.println("Error please re-enter your value in numbers. " +
+                        "   Thank you"); // error message
+        }
+    }
