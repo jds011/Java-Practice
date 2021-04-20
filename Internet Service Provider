@@ -1,0 +1,39 @@
+package com.company;
+
+import javax.swing.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        String input1, input2, input3;
+        //int x, y;
+
+        input1 = JOptionPane.showInputDialog("Enter a first name: ");
+
+        input2 = JOptionPane.showInputDialog("Enter a first name: ");
+
+        input3 = JOptionPane.showInputDialog("Enter a first name: ");
+
+
+
+
+        if (input1.compareToIgnoreCase(input2) < 0 && input2.compareToIgnoreCase(input3) < 0) {
+            System.out.println(input1 + ", " + input2 + ", " + input3);
+        }  else  if (input1.compareToIgnoreCase(input2) > 0 && input2.compareToIgnoreCase(input3) > 0) {
+            System.out.println(input3 + ", " + input2 + ", " + input1);
+        } else   if (input1.compareToIgnoreCase(input2) > 0  && input1.compareToIgnoreCase(input3) < 0) {
+            System.out.println(input2 + ", " + input1 + ", " + input3);
+        } else  if (input1.compareToIgnoreCase(input3) < 0 && input3.compareToIgnoreCase(input2) < 0) {
+            System.out.println(input1 + ", " + input3 + ", " + input2);
+        } else  if (input3.compareToIgnoreCase(input1) < 0 && input1.compareToIgnoreCase(input2) < 0 ) {
+            System.out.println(input3 + ", " + input1 + ", " + input2);
+        }  else  if (input2.compareToIgnoreCase(input3) < 0 && input3.compareToIgnoreCase(input1) < 0 ) {
+            System.out.println(input2 + ", " + input3 + ", " + input1);
+        }
+        else{
+            System.out.println("error");
+        }
+        System.exit(0);
+    }
+}
