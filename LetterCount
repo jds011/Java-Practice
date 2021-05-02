@@ -1,0 +1,39 @@
+package com.company;
+
+import javax.swing.*;
+
+public class LetterCounter {
+    public static void main(String[] args) {
+
+        String word, input;  //holds letter(char) input and word(string) input
+        char inputLetter, comLetter; // turns letter into char
+        int charNum , stringLenght, count; /* used to compare string to characters to letter char) */
+        int letterCount = 0; //accumulator (keeps track of the #  for similar words inside the string)
+        int plusless; //Adds +1 if letters are ==
+
+        word = JOptionPane.showInputDialog("Enter word");  // returns input String
+        input = JOptionPane.showInputDialog("Enter  a letter"); //returns input string
+        inputLetter = input.charAt(0); // turns input to char
+
+        stringLenght = word.length(); // find String length
+
+
+        for (count=0,charNum=0;count < stringLenght; count++, charNum++) {
+            comLetter = word.charAt(charNum);
+            if (comLetter == inputLetter) {
+                plusless = 1;
+            } else {
+                plusless = 0;
+            } // if it's greater than or lower than (not the same character then)
+            letterCount += plusless;
+
+        }
+            System.out.println("Word: " + word);
+            System.out.println("Letter selected " + inputLetter);
+            System.out.println("Number of similar characters found inside " + word + ": " + letterCount);
+
+
+        System.exit(0);
+
+    }
+}
