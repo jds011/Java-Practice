@@ -1,0 +1,33 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) throws IOException {
+	// write your code here
+        String text;
+        String caps;
+        File inputFile = new File("C:\\Users\\student\\Desktop\\Java Practice\\Doc1.txt"); // Opens a file
+        if (!inputFile.exists()){                       // Checks for its existence
+            System.out.println("The file Doc1.txt is not found.");
+            System.exit(0);
+        }
+        FileWriter outPut = new FileWriter("C:\\Users\\student\\Desktop\\Java Practice\\Capital.txt", true); // Appends to a file
+        PrintWriter outputFile = new PrintWriter(outPut);
+        Scanner fileRead = new Scanner(inputFile);      // Reads files input(contents)
+        while (fileRead.hasNext()){     // CHANGES WORDS INTO CAPS
+            text = fileRead.nextLine();
+            caps = text.toUpperCase();
+            outputFile.println(caps);
+
+        }
+        fileRead.close();// closes inputFile
+        outputFile.close();// closes outputFile
+
+
+
+    }
+}
