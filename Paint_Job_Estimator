@@ -1,0 +1,83 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int numRooms = numRooms();
+        double paintCost = pricePaintG();
+        double totalWallSpace = sqrFeet_EachWall(numRooms);
+        double numPaintG = numPaintG(totalWallSpace);
+        double hours_Labor = hours_LaborRequired(numPaintG);
+        double totalCostPaint = totalCost_Paint(paintCost, numPaintG);
+        double t_laborCost = totalLaborCharges( hours_Labor);
+        double totalPaintJob_Cost = totalPaintJob_Cost(totalCostPaint, t_laborCost);
+        
+        //Prints: The number of gallons of paint required:
+        System.out.println("Number of paint gallons required: #" + numPaintG);
+        
+        //Prints: The hours of labor required:
+        System.out.println("Total number of labor hours required: #"+ hours_Labor);
+        
+        //Prints: The cost of the paint:
+        System.out.println("Total cost of the paint: $" + totalCostPaint);
+        
+        //Prints: The labor charges:
+        System.out.println("Total labor charges: $" + t_laborCost);
+        
+        //The total cost of the paint job:
+        System.out.println("Overall cost of the paint job $" + totalPaintJob_Cost);
+
+    }
+    //Input: Number of rooms
+    public static int numRooms( ){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter the total number of rooms: ");
+        return keyboard.nextInt();
+    }
+    //  Input: Price of paint per gallon
+    public static double pricePaintG(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Whats the price of the paint per gallon?");
+        return keyboard.nextDouble();
+    }
+    // Collects the sqr feet of each room
+    public static  double sqrFeet_EachWall(int x){
+        Scanner keyboard = new Scanner(System.in);
+
+        int num = 1;
+        double roomSqr;
+        double totalWallSpace = 0.0;
+        while (num <= x){
+            System.out.println("What's the wall sqr feet space for room " + num + " ? ");
+            roomSqr = keyboard.nextDouble();
+            totalWallSpace =+ roomSqr;
+            num++;
+        }
+        return totalWallSpace;
+    }
+    // The number of gallons of paint required
+    public static double numPaintG(double totalWallSpace){
+        double numPaintG = totalWallSpace / 115;
+        return numPaintG;
+    }
+    //Calculates number of paint gallons
+    public static double hours_LaborRequired(double numPaintG){
+        double hours_Labor = numPaintG * 8;
+        return hours_Labor;
+    }
+    //total cost of the paint
+    public static double totalCost_Paint(double paintCost, double numPaintG){
+        double totalPaintCost = paintCost * numPaintG;
+        return totalPaintCost;
+    }
+    // total cost for work hours
+    public static double totalLaborCharges(double hoursWork){
+        double totalLaborCost = hoursWork * 18.00;
+        return totalLaborCost;
+    }
+    // total cost for work hours + total cost of the paint = total cost of the job
+    public static double totalPaintJob_Cost(double totalCostPaint, double t_laborCost ){
+        double totalPaintJob_Cost = totalCostPaint + t_laborCost;
+        return totalPaintJob_Cost;
+    }
+}
