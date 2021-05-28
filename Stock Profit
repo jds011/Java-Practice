@@ -1,0 +1,62 @@
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        // write your code here
+        double NS = NS();
+        double PP = PP();
+        double PC = PC();
+        double SP = SP();
+        double SC = SC();
+
+        double profit = showProfit(NS, PP, PC, SP, SC);
+
+        if (profit < 0){
+            System.out.println("There was a loss of: " + profit);
+        }
+        if (profit < 0){
+            System.out.println("The was a gain of: " + profit);
+        } else{
+            System.out.println("The wasn't any gains or losses");
+        }
+    }
+    //Number of Shares
+    public static double NS() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the number of shares?");
+        return keyboard.nextDouble();
+}
+    //Purchase Price
+    public static double PP() {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the price per share?");
+        return keyboard.nextDouble();
+    }
+    //Purchase Commission Price
+    public static double PC(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the purchase commission paid?");
+        return keyboard.nextDouble();
+
+    }
+    //Sale Price Per Share
+    public static double SP(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the sales price per share?");
+        return keyboard.nextDouble();
+
+    }
+    //Sales Commission
+    public static double SC(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("What's the commission paid");
+        return keyboard.nextDouble();
+    }
+    public static double showProfit(double NS, double PP, double PC,double  SP,double  SC){
+        double profit = ((NS * SP) - SC)- ((NS * PP) +PC);
+        return profit;
+    }
+
+}
