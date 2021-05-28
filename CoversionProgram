@@ -1,0 +1,74 @@
+public class ConversionProgram {
+    public static void main(String[]args) {
+
+        double distance = 0.0;
+        int option = 0;
+
+        do { // Display results of selected option
+            distance = Distance_Meters();
+            if (distance < 0) {
+                System.out.println("Invalid input value for meters has to be positive.");
+            }
+            if (distance >=  0) {
+
+                menu();
+                option = EnterOption();
+                if (option == 1) {
+                    //to kilometers
+                    double kilometers = showKilometers(distance);
+                    System.out.println("Meters to kilometers: " + kilometers);
+                }
+                if (option == 2) {
+                    // to inches
+                    double inches = showInches(distance);
+                    System.out.println("Meters to Inches " + inches);
+                }
+                if (option == 3) {
+                    //to feet
+                    double feet = showFeet(distance);
+                    System.out.println("Meters to feet " + feet);
+                }
+                if (option == 4) {
+                    System.out.println("BYE!!");
+                    Quit();
+                } else if( option < 1 || option > 4){
+                    System.out.println("Input is invalid");
+
+                }
+            }
+        }while (option !=4) ;
+    }
+    public static void menu(){
+        System.out.print("1. Convert to kilometers\n" +
+                "2. Convert to inches\n" +
+                "3. Covert to feet\n" +
+                "4. Quit the program\n");
+
+    }
+    public static double Distance_Meters(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter the distance in meters:");
+        return keyboard.nextDouble();
+    }
+    public static int EnterOption(){
+        Scanner keyboard = new Scanner(System.in);
+        return keyboard.nextInt();
+    }
+    public static double showKilometers(double meters){
+        double kilometers = 0.001 * meters;
+        return kilometers;
+    }
+    public static double showInches(double meters){
+        double inches = 39.37 * meters;
+        return inches;
+    }
+    public static double showFeet(double meters){
+        double feet = 3.281 * meters;
+        return feet;
+    }
+    public static void Quit(){
+        System.exit(0);
+    }
+
+}
+
