@@ -1,0 +1,28 @@
+{
+
+    public static void main(String[] args) {
+    double m = Mass(); //mass
+    double v = Velocity(); //velocity
+    double KE = kineticEnergy(m,v );
+
+    System.out.println("Kinetic Energy: " + KE);
+
+    }
+
+    //mass in kilograms
+    public static double Mass(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter mass in kilograms:");
+        return keyboard.nextDouble();
+    }
+    // object's velocity in meters/per second
+    public static double Velocity(){
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Enter velocity in meters/per sec: ");
+        return keyboard.nextDouble();
+    }
+    public static double kineticEnergy(double m,double v){
+        double KE = (float)1/2 * m * v;
+        return KE;
+    }
+}
